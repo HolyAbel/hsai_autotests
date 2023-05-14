@@ -68,9 +68,9 @@
   </profile>
 
     <profile>
-    <id>lab2suite</id>
+    <id>lab3suite</id>
     <properties>
-      <testng.suite.file>${project.build.testOutputDirectory}/lab2suite.xml</testng.suite.file>
+      <testng.suite.file>${project.build.testOutputDirectory}/lab3suite.xml</testng.suite.file>
     </properties>
     <activation>
       <activeByDefault>true</activeByDefault>
