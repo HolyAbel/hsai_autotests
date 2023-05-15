@@ -2,13 +2,13 @@ package org.example.lab2;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static org.junit.Assert.assertEquals;
+import static org.testng.Assert.assertEquals;
+
 
 public class Task2Test extends DriverSetup {
     @Test(priority = 1)
@@ -67,7 +67,7 @@ public class Task2Test extends DriverSetup {
         };
 
         for (int i = 0; i < logs.size(); i++) {
-            Assert.assertEquals(logs.get(i), expectedLogs[i]);
+            assertEquals(logs.get(i), expectedLogs[i]);
         }
     }
 }
