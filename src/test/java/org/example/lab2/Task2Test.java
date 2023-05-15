@@ -4,21 +4,27 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import org.testng.asserts.SoftAssert;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Task2Test  extends DriverSetup {
-    @Test
-    public void softAssertTest() {
+import static org.junit.Assert.assertEquals;
+
+public class Task2Test extends DriverSetup {
+    @Test(priority = 1)
+    public void testHomePageTitle() {
         //2. Assert Browser title
-        SoftAssert softAssert = new SoftAssert();
-        softAssert.assertEquals(driver.getTitle(), "Home Page");
+        assertEquals(driver.getTitle(), "Home Page");
+    }
 
+    @Test(priority = 1)
+    public void testIsLoggined() {
         // 4. Assert Username is loggined
-        softAssert.assertEquals(driver.findElement(By.id("user-name")).getText(), "ROMAN IOVLEV");
+        assertEquals(driver.findElement(By.id("user-name")).getText(), "ROMAN IOVLEV");
+    }
 
+    @Test(priority = 3)
+    public void testElements() {
         // 5. Open through the header menu Service -> Different Elements Page
         driver.findElement(By.className("dropdown-toggle")).click();
         driver.findElement(By.className("dropdown-menu")).
@@ -53,7 +59,7 @@ public class Task2Test  extends DriverSetup {
         List<String> logs = driver.findElements(By.cssSelector("ul[class='panel-body-list logs'] > li")).
                 stream().map(s -> s.getText().substring(9)).collect(Collectors.toList());
 
-        String[] realLogs = new String[]{
+        String[] expectedLogs = new String[]{
                 "Colors: value changed to Yellow",
                 "metal: value changed to Selen",
                 "Wind: condition changed to true",
@@ -61,9 +67,7 @@ public class Task2Test  extends DriverSetup {
         };
 
         for (int i = 0; i < logs.size(); i++) {
-            Assert.assertEquals(logs.get(i), realLogs[i]);
+            Assert.assertEquals(logs.get(i), expectedLogs[i]);
         }
-
-        softAssert.assertAll();
     }
 }
