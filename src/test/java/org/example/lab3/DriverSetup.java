@@ -1,6 +1,6 @@
 package org.example.lab3;
 
-import org.example.lab3.differentelementspage.DifferentElementsPage;
+import org.example.lab3.elementspage.DifferentElementsPage;
 import org.example.lab3.pages.homepage.HomePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -20,7 +20,7 @@ public class DriverSetup {
 
     @BeforeTest
     public static void setup() {
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\Saint Abel\\Desktop\\lab2_autotests\\hsai_autotests\\src\\test\\resources\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "src\\test\\resources\\chromedriver.exe");
         System.setProperty("webdriver.http.factory", "jdk-http-client");
 
         Properties properties = new Properties();

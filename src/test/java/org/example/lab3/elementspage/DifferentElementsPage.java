@@ -1,8 +1,6 @@
-package org.example.lab3.differentelementspage;
+package org.example.lab3.elementspage;
 
 import org.example.lab3.expecteddata.ExpectedData;
-import org.example.lab3.pages.homepage.elements.Header;
-import org.example.lab3.pages.homepage.elements.LeftSection;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;

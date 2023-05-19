@@ -1,6 +1,6 @@
 package org.example.lab3;
 
-import org.example.lab3.differentelementspage.DifferentElementsPage;
+import org.example.lab3.elementspage.DifferentElementsPage;
 import org.example.lab3.expecteddata.ExpectedData;
 import org.testng.annotations.Test;
 
