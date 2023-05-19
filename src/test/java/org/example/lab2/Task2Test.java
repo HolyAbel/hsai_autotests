@@ -17,7 +17,7 @@ public class Task2Test extends DriverSetup {
         assertEquals(driver.getTitle(), "Home Page");
     }
 
-    @Test(priority = 1)
+    @Test(priority = 2)
     public void testIsLoggined() {
         // 4. Assert Username is loggined
         assertEquals(driver.findElement(By.id("user-name")).getText(), "ROMAN IOVLEV");
@@ -33,41 +33,27 @@ public class Task2Test extends DriverSetup {
 
         // 6. Select checkboxes
         List<WebElement> checkboxes = driver.findElements(By.className("label-checkbox"));
-        for (WebElement cb : checkboxes) {
-            if (cb.getText().equals("Water") || cb.getText().equals("Wind")) {
-                cb.findElement(By.tagName("input")).click();
-            }
-        }
+        checkboxes.stream().filter(checkbox -> checkbox.getText().equals("Water")).forEach(WebElement::click);
+        checkboxes.stream().filter(checkbox -> checkbox.getText().equals("Wind")).forEach(WebElement::click);
 
         // 7. Select radio
         List<WebElement> radios = driver.findElements(By.className("label-radio"));
-        for (WebElement radio : radios) {
-            if (radio.getText().equals("Selen")) {
-                radio.findElement(By.tagName("input")).click();
-            }
-        }
+        radios.stream().filter(radio -> radio.getText().equals("Selen")).forEach(WebElement::click);
 
         // 8. Select in dropdown
         List<WebElement> selectors = driver.findElements(By.tagName("option"));
-        for (WebElement selector : selectors) {
-            if (selector.getText().equals("Yellow")) {
-                selector.click();
-            }
-        }
+        selectors.stream().filter(selector -> selector.getText().equals("Yellow")).forEach(WebElement::click);
 
         // 9. Assert logs
         List<String> logs = driver.findElements(By.cssSelector("ul[class='panel-body-list logs'] > li")).
                 stream().map(s -> s.getText().substring(9)).collect(Collectors.toList());
 
-        String[] expectedLogs = new String[]{
+        List<String> expectedLogs = List.of(
                 "Colors: value changed to Yellow",
                 "metal: value changed to Selen",
                 "Wind: condition changed to true",
-                "Water: condition changed to true"
-        };
+                "Water: condition changed to true");
 
-        for (int i = 0; i < logs.size(); i++) {
-            assertEquals(logs.get(i), expectedLogs[i]);
-        }
+        assertEquals(logs, expectedLogs);
     }
 }

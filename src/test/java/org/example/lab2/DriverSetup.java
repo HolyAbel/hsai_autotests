@@ -11,7 +11,7 @@ public class DriverSetup {
 
     @BeforeTest
     public static void setup() {
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\Saint Abel\\Desktop\\lab2_autotests\\hsai_autotests\\src\\test\\resources\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "src\\test\\resources\\chromedriver.exe");
         System.setProperty("webdriver.http.factory", "jdk-http-client");
 
         driver = new ChromeDriver();
