@@ -6,21 +6,21 @@ import org.junit.jupiter.params.provider.CsvSource;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class isPositiveTests extends CalcTests {
+public class IsPositiveTests extends CalcTests {
     @ParameterizedTest
     @CsvSource({"1", "15326"})
-    public void TestPosIsTrue(long a) {
+    public void testPosIsTrue(long a) {
         assertTrue(calc.isPositive(a));
     }
 
     @ParameterizedTest
     @CsvSource({"-1", "-1266243"})
-    public void TestPosIsFalse(long a) {
+    public void testPosIsFalse(long a) {
         assertFalse(calc.isPositive(a));
     }
 
     @Test
-    public void TestZeroIsNotPos() {
+    public void testZeroIsNotPos() {
         assertFalse(calc.isPositive(0));
     }
 }
