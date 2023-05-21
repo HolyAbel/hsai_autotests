@@ -2,11 +2,8 @@ package org.example.lab4;
 
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
-import org.example.lab4.elementspage.DifferentElementsPage;
 import org.example.lab4.expecteddata.ExpectedData;
 import org.testng.annotations.Test;
-
-import static org.testng.Assert.assertEquals;
 
 @Feature("Second task on testing by steps")
 public class Task2Test extends DriverSetup {

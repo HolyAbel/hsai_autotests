@@ -10,7 +10,7 @@ public class StepsInitialization {
     protected static WebDriver driver;
     protected static Properties properties;
 
-    protected static HomePage homePage;
+    public static HomePage homePage;
     protected static DifferentElementsPage differentElementsPage;
 
     public StepsInitialization(WebDriver driver, Properties properties) {
