@@ -1,21 +1,17 @@
 package org.example.lab4;
 
+import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
 import org.example.lab4.expecteddata.ExpectedData;
 import org.testng.annotations.Test;
 
+@Feature("First task on testing by steps")
 public class Task1Test extends DriverSetup {
     @Test
     @Story("Testing the Home Page")
     public void softAssertTest() {
-        // 1. Open test site by URL
-        action.navigateToSite();
-
         //2. Assert Browser title
         assertion.assertBrowserTitle(ExpectedData.SITE_NAME);
-
-        // 3. Perform login
-        action.login();
 
         // 4. Assert Username is loggined
         assertion.assertUsernameIsLoggined(ExpectedData.USERNAME);

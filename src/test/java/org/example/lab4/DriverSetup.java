@@ -36,6 +36,12 @@ public class DriverSetup {
 
         action = new Action(driver, properties);
         assertion = new Assertion(driver, properties);
+
+        // 1. Open test site by URL
+        action.navigateToSite();
+
+        // 3. Perform login
+        action.login();
     }
 
     @AfterTest
